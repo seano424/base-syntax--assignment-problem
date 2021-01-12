@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserInput from "./User/UserInput"
-import UserOutput from "./User/UserOutput"
-
-
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
-
   state = {
-    users: [
-      { username: "Boop", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident?" },
-      { username: "Gigi", content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam doloribus repudiandae minima sed nemo. Cumque?"}
-    ]
+    username: "Sean"
   }
 
-  changeContentHandler = (event) => {
+  changedUserNameHandler = (event) => {
     this.setState({
-      users: [
-        { username: event.target.value, content: event.target.value },
-        { username: "Gigi", content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam doloribus repudiandae minima sed nemo. Cumque?"}
-      ]
+      username: event.target.value
     })
   }
 
@@ -38,10 +29,10 @@ class App extends Component {
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
-        <UserOutput username={this.state.users[0].username} content={this.state.users[0].content}/>
-        <UserInput username={this.state.users[0].username} content={this.state.users[0].content} change={this.changeContentHandler}/>
-        <UserOutput username={this.state.users[1].username} content={this.state.users[1].content}/>
-        <UserInput/>
+        <UserInput changed={this.changedUserNameHandler}/>
+        <UserOutput userName={this.state.username}/>
+        <UserOutput userName={this.state.username}/>
+        <UserOutput userName="Patrick"/>
       </div>
     );
   }
