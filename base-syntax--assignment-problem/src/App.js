@@ -4,13 +4,14 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
+  
   state = {
-    username: "Sean"
+    username = "Sean"
   }
-
-  changedUserNameHandler = (event) => {
+  
+  changedUserNameHandler = (e) => {
     this.setState({
-      username: event.target.value
+      username = e.target.value
     })
   }
 
